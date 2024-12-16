@@ -5,21 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Payment Page</title>
-    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <h2>Pay for Your Order</h2>
-    <form id="payment-form">
-        <div id="card-element">
-            <!-- A Stripe Element will be inserted here. -->
-        </div>
-
-        <!-- Used to display form errors. -->
-        <div id="card-errors" role="alert"></div>
-
-        <button id="submit">Pay Now</button>
+    <form action="/process_payment.php" method="POST">
+        <input type="hidden" name="merchant_id" value="your-merchant-id">
+        <input type="hidden" name="merchant_key" value="your-merchant-key">
+        <input type="hidden" name="return_url" value="http://yourwebsite.com/return">
+        <input type="hidden" name="cancel_url" value="http://yourwebsite.com/cancel">
+        <input type="hidden" name="notify_url" value="http://yourwebsite.com/notify">
+        
+        <label for="amount">Amount (ZAR):</label>
+        <input type="text" name="amount" id="amount" value="500" required>
+        
+        <button type="submit">Pay Now</button>
     </form>
-
-    <script src="payment.js"></script>
 </body>
 </html>
