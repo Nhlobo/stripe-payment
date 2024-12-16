@@ -4,21 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Payment Page</title>
+    <title>Secure Payment Page</title>
+    <link rel="stylesheet" href="payment.css">
 </head>
 <body>
-    <h2>Pay for Your Order</h2>
-    <form action="/process_payment.php" method="POST">
-        <input type="hidden" name="merchant_id" value="your-merchant-id">
-        <input type="hidden" name="merchant_key" value="your-merchant-key">
-        <input type="hidden" name="return_url" value="http://yourwebsite.com/return">
-        <input type="hidden" name="cancel_url" value="http://yourwebsite.com/cancel">
-        <input type="hidden" name="notify_url" value="http://yourwebsite.com/notify">
-        
-        <label for="amount">Amount (ZAR):</label>
-        <input type="text" name="amount" id="amount" value="500" required>
-        
-        <button type="submit">Pay Now</button>
-    </form>
+    <div class="payment-container">
+        <h2>Complete Your Payment</h2>
+        <p>Pay for your order securely using PayFast.</p>
+
+        <form action="/process_payment.php" method="POST" class="payment-form">
+            <input type="hidden" name="merchant_id" value="your-merchant-id">
+            <input type="hidden" name="merchant_key" value="your-merchant-key">
+            <input type="hidden" name="return_url" value="http://yourwebsite.com/return">
+            <input type="hidden" name="cancel_url" value="http://yourwebsite.com/cancel">
+            <input type="hidden" name="notify_url" value="http://yourwebsite.com/notify">
+            
+            <label for="amount">Amount (ZAR):</label>
+            <input type="number" name="amount" id="amount" value="500" required>
+
+            <button type="submit" class="pay-button">Pay Now</button>
+        </form>
+    </div>
 </body>
 </html>
